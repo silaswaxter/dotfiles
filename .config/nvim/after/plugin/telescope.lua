@@ -1,7 +1,7 @@
 require('telescope').setup({
   pickers = {find_files = {hidden = true}},
   extensions = {['ui-select'] = {require('telescope.themes').get_dropdown {}}},
-  defaults = {file_ignore_patterns = {'.git'}}
+  defaults = {file_ignore_patterns = {'.git', '.cache', "release", "node_modules"}}
 })
 
 -- Enable telescope fzf native, if installed

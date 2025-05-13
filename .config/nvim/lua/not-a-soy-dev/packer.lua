@@ -72,7 +72,8 @@ require('packer').startup(function(use)
   use({'L3MON4D3/LuaSnip'})
 
   -- Formatter/Linter:
-  use({'jose-elias-alvarez/null-ls.nvim', requires = {'nvim-lua/plenary.nvim'}})
+  -- null-ls deprecated use community hot replacement none-ls
+  use({'nvimtools/none-ls.nvim', requires = {'nvim-lua/plenary.nvim'}})
 
   -- Git-related:
   use({'lewis6991/gitsigns.nvim'})
@@ -106,7 +107,7 @@ require('packer').startup(function(use)
   -- improve my vim movements
   use({
     'm4xshen/hardtime.nvim',
-    config = function() require('hardtime').setup() end
+    -- config = function() require('hardtime').setup() end
   })
   use {
     'johmsalas/text-case.nvim',

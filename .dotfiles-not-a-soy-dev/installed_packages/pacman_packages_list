@@ -8,6 +8,7 @@ bash-completion
 bazel
 bind
 bison
+blender
 blueman
 bluez-utils
 brotli
@@ -18,9 +19,9 @@ curl
 docker
 docker-compose
 dunst
-ext4magic
 fakeroot
 feh
+flatbuffers
 flex
 fribidi
 fuse2
@@ -72,6 +73,7 @@ nmap
 nodejs
 noto-fonts-emoji
 npm
+ntfs-3g
 numlockx
 obs-studio
 ocl-icd
@@ -90,8 +92,6 @@ pre-commit
 psutils
 pulseaudio
 pulseaudio-alsa
-pulseaudio-bluetooth
-pulsemixer
 pyenv
 python
 python-cairo
@@ -112,9 +112,9 @@ sudo
 systemd
 systemd-libs
 texinfo
+tinysparql
 tk
 tmux
-tracker3
 tree
 ttf-firacode-nerd
 ttf-liberation
