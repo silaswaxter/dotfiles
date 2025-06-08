@@ -8,7 +8,6 @@ bash-completion
 bazel
 bind
 bison
-blender
 blueman
 bluez-utils
 brotli
@@ -16,11 +15,10 @@ clang
 cmake
 cups
 curl
-docker
-docker-compose
 dunst
 fakeroot
 feh
+flashrom
 flatbuffers
 flex
 fribidi
@@ -134,7 +132,6 @@ xorg-server
 xorg-xcursorgen
 xorg-xinit
 xorg-xkill
-xournalpp
 yadm
 zathura
 zathura-pdf-poppler

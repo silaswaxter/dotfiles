@@ -12,7 +12,6 @@ alias ll='ls -la'
 
 ## Source bash completion
 [ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
-source ~/.chezmoi-completion.bash
 source ~/.bash-completion-arduino-cli.bash
 
 ## Set Environment Variables
@@ -38,4 +37,8 @@ fi
 
 . "$HOME/.cargo/env"
 
+export PATH="/home/silas/.local/bin/:$PATH"
 export PATH="/home/silas/.local/bin/STM32CubeProgrammer/bin:$PATH"
+export PATH="/home/silas/.local/bin/GoDot/:$PATH"
+export PATH="/home/silas/.local/nrf-command-line-tools/bin/:$PATH"
+export PATH="/home/silas/.local/JLink_Linux_V838_x86_64:$PATH"
