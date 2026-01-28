@@ -3,7 +3,7 @@
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
 
 A place to track my configuration files (dotfiles). They are personal and some
-of them are pretty segsy.
+of them are pretty cash money.
 
 ![screenshot-07-12-23](.dotfiles-not-a-soy-dev/screenshot-07-12-23.png)
 Taken on 07-12-2023.
