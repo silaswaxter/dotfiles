@@ -1,0 +1,69 @@
+/**
+ * ROFI Color theme
+ * NAME: dt-dmenu.rasi
+ * DESCRIPTION: This is a horizontal prompt similar to dmenu. Adapted from Derek Taylor
+ *              (DT)
+ * AUTHOR: Silas Waxter
+ */
+
+configuration {
+    font: "FiraCode Nerd Font 12";
+    show-icons: false;
+    terminal: "wezterm";
+    drun-match-fields: "name,generic,exec,categories";
+    matching: "fuzzy";
+}
+
+* {
+    /* Base */
+    height:                     32px;
+
+    background-color:           #282828;
+    text-color:                 #a89984;
+    default-border:             #282828;
+
+    prompt-background:          #a89984;
+    prompt-foreground:          #282828;
+    prompt-padding:             2px;
+
+    selected-background:        #d79921;
+    selected-foreground:        #282828;
+}
+#window {
+    anchor: north;
+    location: north;
+    width: 100%;
+    padding: 4px;
+    children: [ horibox ];
+}
+#horibox {
+    orientation: horizontal;
+    children: [ prompt, entry, listview ];
+}
+#prompt {
+    background-color: @prompt-background;
+    text-color:       @prompt-foreground;
+    padding:          @prompt-padding;
+}
+#listview {
+    layout: horizontal;
+    lines: 100;
+}
+#entry {
+    padding: 2px;
+    expand: false;
+    width: 10em;
+}
+#element {
+    padding: 2px 8px;
+}
+#element selected {
+    background-color: @selected-background;
+    text-color:       @selected-foreground;
+}
+
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
