@@ -1,2 +1,0 @@
-Install libudev0-shim
-follow part 4 of https://github.com/baioc/quartus-linux

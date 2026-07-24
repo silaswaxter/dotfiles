@@ -1,2 +1,0 @@
-If redirect page does not load.  Can often be redirected by attempting to access
-router directly.  Type "192.168.1.1" in browser.

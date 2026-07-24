@@ -1,8 +1,0 @@
-.Context
-Redirect/login page does not load when connecting to a public wifi that is
-open.
-
-.Solution
-1. run `sudo route -n`.
-2. Type the default gateway address into your browser. This should open the 
-   login page.

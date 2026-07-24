@@ -1,9 +1,0 @@
-repos:
-  - repo: local
-    hooks:
-      - id: update_installed_packages_list
-        name: update_installed_packages_list
-        language: system
-        entry: bash .dotfiles-not-a-soy-dev/installed_packages/update_installed_packages_list.sh
-        always_run: true
-        pass_filenames: true
