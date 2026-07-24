@@ -3,10 +3,36 @@
 # ---
 { config, pkgs, ... }:
 
+let
+  settings = import ./settings.nix;
+in
 {
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    plymouth = {
+      enable = true;
+      theme = settings.plymouthTheme;
+
+      themePackages = [
+        (pkgs.adi1090x-plymouth-themes.override {
+          selected_themes = [ settings.plymouthTheme ];
+        })
+      ];
+    };
+
+    # Enable "Silent boot"
+    consoleLogLevel = 3;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "rd.udev.log_level=3"
+      "rd.systemd.show_status=auto"
+    ];
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+  };
 
   # Networking
   networking.wireless.enable = true;
