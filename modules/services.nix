@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  settings = import ./settings.nix;
+in
 {
   # List services that you want to enable:
   services.openssh.enable = true;
@@ -16,15 +19,24 @@
     autoRepeatInterval = 30;
   };
 
-  services.xserver.displayManager.lightdm = {
-    enable = true;
+  services.xserver.displayManager = {
+      lightdm = {
+        enable = true;
 
-	#    background = "/home/silas/images/wallpapers/tokyonight-wallpapers/tokyonight_original.png"
-	#
-	#    greeters.enso = {
-	#    	enable = true;
-	# blur = true;
-	#    };
+        # enable redshift in one-shot mode so I don't get flashbanged
+        extraSeatDefaults = ''
+            greeter-setup-script=${pkgs.writeShellScript "lightdm-greeter-setup" ''
+              ${pkgs.redshift}/bin/redshift -r -O ${toString settings.redshift.night}
+            ''}
+          '';
+
+      #    background = "/home/silas/images/wallpapers/tokyonight-wallpapers/tokyonight_original.png"
+      #
+      #    greeters.enso = {
+      #    	enable = true;
+      # blur = true;
+      #    };
+    };
   };
 
   services.picom.enable = true;
@@ -39,9 +51,14 @@
       night = "1";
     };
     temperature = {
-      day = 5500;
-      night = 3700;
+      day = settings.redshift.day;
+      night = settings.redshift.night;
     };
+
+    extraOptions = [
+      "-r"  # no fade
+      "-P"  # reset gamma map (gamma ramp is additive--avoid innaccurate colors when set prior)
+    ];
   }; 
 
   systemd.user.services.truple = {
