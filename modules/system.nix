@@ -9,16 +9,7 @@ in
 {
   # Bootloader.
   boot = {
-    plymouth = {
-      enable = true;
-      theme = settings.plymouthTheme;
-
-      themePackages = [
-        (pkgs.adi1090x-plymouth-themes.override {
-          selected_themes = [ settings.plymouthTheme ];
-        })
-      ];
-    };
+    plymouth.enable = true;
 
     # Enable "Silent boot"
     consoleLogLevel = 3;

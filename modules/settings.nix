@@ -5,5 +5,6 @@
   };
 
   plymouthTheme = "hexagon_dots";
+  wallpaper = ../wallpapers/cottages-river.png;
 }
 

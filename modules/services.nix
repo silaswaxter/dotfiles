@@ -29,13 +29,6 @@ in
               ${pkgs.redshift}/bin/redshift -r -O ${toString settings.redshift.night}
             ''}
           '';
-
-      #    background = "/home/silas/images/wallpapers/tokyonight-wallpapers/tokyonight_original.png"
-      #
-      #    greeters.enso = {
-      #    	enable = true;
-      # blur = true;
-      #    };
     };
   };
 

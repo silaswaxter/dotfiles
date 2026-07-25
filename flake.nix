@@ -12,27 +12,34 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    catppuccin.url = "github:catppuccin/nix/release-26.05";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, nix-snapd, ... }:
+  outputs = { self, nixpkgs, catppuccin, home-manager, nixos-hardware, nix-snapd, ... }:
   {
     nixosConfigurations = {
       whitelotus = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
         modules = [
+          # System modules
           ./hosts/whitelotus/configuration.nix
-
           nix-snapd.nixosModules.default
           nixos-hardware.nixosModules.framework-16-amd-ai-300-series
-
+          catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
+
+          # Homemanager Config
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-
-            home-manager.users.silas =
-              import ./home/default.nix;
+            home-manager.users.silas = {
+              imports = [
+                ./home/default.nix
+                catppuccin.homeModules.catppuccin
+              ];
+            };
           }
         ];
       };

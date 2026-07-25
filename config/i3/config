@@ -33,7 +33,7 @@ set $ws0 0
 ################################################################################
 # i3 Startup
 ################################################################################
-exec_always feh --bg-fill /home/silas/images/wallpapers/tokyonight-wallpapers/tokyonight_original.png
+exec_always feh --bg-fill /home/silas/dotfiles/wallpapers/cottages-river.png
 exec_always /home/silas/.config/polybar/reload-polybar.sh
 
 ################################################################################
