@@ -2,23 +2,30 @@
 
 let
   settings = import ./settings.nix;
+  c = settings.colors;
 in
 {
-  services.xserver.displayManager = {
-    lightdm = {
-      background = toString settings.wallpaper;
-      greeters.gtk = {
-        enable = true;
-        # theme = {
-        #   package = catppuccin-gtk;
-        #   name = "Catppuccin-Mocha-Standard-Blue-Dark";
-        # };
-        cursorTheme = {
-          package = pkgs.catppuccin-cursors.mochaBlue;
-          name = "catppuccin-mocha-blue-cursors";
-        };
-      };
-    };
+  services.xserver.displayManager.lightdm.greeters.mini = {
+      enable = true;
+      user = "silas";
+      extraConfig = ''
+        [greeter-theme]
+        background-image = "${settings.wallpaper-login}"
+        background-color = "${c.background}"
+
+        window-color = "${c.surface}"
+
+        text-color = "${c.foreground}"
+
+        border-color = "${c.border}"
+        border-width = 2px
+
+        password-color = "${c.foreground}"
+        password-background-color = "${c.surface}"
+        password-border-color = "${c.muted}"
+
+        error-color = "${c.error}"
+      '';
   };
 
   boot.plymouth = {
