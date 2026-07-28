@@ -8,6 +8,7 @@ in
   imports = [
     ./theme.nix
     ./kitty.nix
+    ./rofi.nix
   ];
   home.username = "silas";
   home.homeDirectory = "/home/silas";
@@ -26,7 +27,7 @@ in
   home.file.".config/picom".source         = link "config/picom";
   home.file.".config/polybar".source       = link "config/polybar";
   home.file.".config/ranger".source        = link "config/ranger";
-  home.file.".config/rofi".source          = link "config/rofi";
+  # home.file.".config/rofi".source          = link "config/rofi";
   home.file.".config/starship.toml".source = link "config/starship.toml";
   home.file.".config/zathura".source       = link "config/zathura";
 }
