@@ -17,7 +17,6 @@
     lightdm
     i3
     redshift
-    rofi
     (pkgs.polybar.override {
       i3Support = true;
       pulseSupport = true;
@@ -31,10 +30,8 @@
     
     # applications
     arandr
-    kitty
     zathura
     brave
-    feh
     ranger
     discord
 
