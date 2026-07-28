@@ -1,13 +1,13 @@
 { pkgs, ... }:
 
 let
-  magnetic-catppuccin-gtk = pkgs.callPackage ../packages/magnetic-catppuccin-gtk.nix {
-    # accent = "mauve";
-    # mode = "dark";
-    # size = "standard";
-  };
+  magnetic-catppuccin-gtk = pkgs.callPackage ../packages/magnetic-catppuccin-gtk.nix {};
 in
 {
+  home.packages = with pkgs; [
+    dconf
+  ];
+
   catppuccin = {
     enable = true;
 

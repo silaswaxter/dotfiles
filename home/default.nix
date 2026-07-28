@@ -6,14 +6,16 @@ let
 in
 {
   imports = [
+    ./packages.nix
     ./theme.nix
     ./kitty.nix
     ./rofi.nix
     ./feh.nix
+    ./i3.nix
   ];
+
   home.username = "silas";
   home.homeDirectory = "/home/silas";
-
   home.stateVersion = "26.05";
 
   programs.home-manager.enable = true;
@@ -21,7 +23,6 @@ in
   xdg.enable = true;
 
   home.file.".config/htop".source          = link "config/htop";
-  home.file.".config/i3".source            = link "config/i3";
   home.file.".config/nvim".source          = link "config/nvim";
   home.file.".config/picom".source         = link "config/picom";
   home.file.".config/polybar".source       = link "config/polybar";

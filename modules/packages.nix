@@ -15,36 +15,18 @@
 
     # desktop
     lightdm
-    i3
     redshift
     (pkgs.polybar.override {
       i3Support = true;
       pulseSupport = true;
     })
     pulsemixer
-    brightnessctl
-
-    # dev tools
-    neovim
-    starship
-    
-    # applications
-    arandr
-    zathura
-    brave
-    ranger
-    discord
 
     # utils
     appimage-run
-    dconf
-    xclip
-    imagemagick
     wget
     python3
-    gh
     file
-    killall
     htop
     unzip
     ripgrep
