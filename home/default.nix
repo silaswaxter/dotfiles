@@ -5,6 +5,10 @@ let
   link = path: config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${path}";
 in
 {
+  imports = [
+    ./theme.nix
+    ./kitty.nix
+  ];
   home.username = "silas";
   home.homeDirectory = "/home/silas";
 
@@ -17,7 +21,7 @@ in
   home.file.".config/feh".source           = link "config/feh";
   home.file.".config/htop".source          = link "config/htop";
   home.file.".config/i3".source            = link "config/i3";
-  home.file.".config/kitty".source         = link "config/kitty";
+  # home.file.".config/kitty".source         = link "config/kitty";
   home.file.".config/nvim".source          = link "config/nvim";
   home.file.".config/picom".source         = link "config/picom";
   home.file.".config/polybar".source       = link "config/polybar";

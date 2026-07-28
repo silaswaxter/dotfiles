@@ -40,6 +40,7 @@
 
     # utils
     appimage-run
+    dconf
     xclip
     imagemagick
     wget
