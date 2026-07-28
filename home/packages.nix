@@ -12,6 +12,7 @@
     zathura
     feh
 
+    pulsemixer
     htop
     imagemagick
     xclip

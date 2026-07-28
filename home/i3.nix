@@ -1,6 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, reloadDesktop, ... }:
 
 {
+  imports = [
+    ./desktop.nix
+  ];
+
   home.packages = with pkgs; [
     feh
     rofi
@@ -28,16 +32,13 @@
 
       startup = [
         {
-          command = "${pkgs.feh}/bin/feh --bg-fill ${config.home.homeDirectory}/dotfiles/wallpapers/clouds.png";
-          always = true;
-          notification = false;
-        }
-        {
-          command = "${config.home.homeDirectory}/.config/polybar/reload-polybar.sh";
+          command = "${reloadDesktop}";
           always = true;
           notification = false;
         }
       ];
+
+      bars = [];
 
       keybindings = {
         # i3 meta
@@ -183,8 +184,6 @@
       };
 
       defaultWorkspace = "workspace number 1";
-
-      workspaceAutoBackAndForth = true;
 
       colors = {
         focused = {

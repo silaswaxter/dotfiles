@@ -16,11 +16,6 @@
     # desktop
     lightdm
     redshift
-    (pkgs.polybar.override {
-      i3Support = true;
-      pulseSupport = true;
-    })
-    pulsemixer
 
     # utils
     appimage-run
