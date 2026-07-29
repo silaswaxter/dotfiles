@@ -7,22 +7,18 @@ let
   };
 
   reloadPolybar = pkgs.writeShellScript "reload-polybar" ''
-    ${pkgs.procps}/bin/pkill -x polybar || true
+    ${pkgs.procps}/bin/pkill -f '/bin/polybar primary' || true
 
     while ${pkgs.procps}/bin/pgrep -x polybar >/dev/null; do
       ${pkgs.coreutils}/bin/sleep 0.01
     done
 
-    if ${pkgs.xrandr}/bin/xrandr --query >/dev/null 2>&1; then
-      for monitor in $(
-        ${pkgs.xrandr}/bin/xrandr --query |
-        ${pkgs.gawk}/bin/awk '/ connected/{print $1}'
-      ); do
-        MONITOR="$monitor" ${polybarPkg}/bin/polybar primary &
-      done
-    else
-      ${polybarPkg}/bin/polybar primary &
-    fi
+    for monitor in $(
+      ${pkgs.xrandr}/bin/xrandr --query |
+      ${pkgs.gawk}/bin/awk '/ connected/{print $1}'
+    ); do
+      MONITOR="$monitor" ${polybarPkg}/bin/polybar primary &
+    done
   '';
 
   networkBase = {

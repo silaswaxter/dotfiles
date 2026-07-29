@@ -1,4 +1,4 @@
-{ config, pkgs, reloadDesktop, ... }:
+{ config, pkgs, reloadDesktop, theme, ... }:
 
 {
   imports = [
@@ -187,35 +187,35 @@
 
       colors = {
         focused = {
-          border = "#7aa2f7";
-          background = "#1a1b26";
-          text = "#c0caf5";
-          indicator = "#7aa2f7";
-          childBorder = "#7aa2f7";
+          border = theme.colors.surface1;
+          background = theme.background;
+          text = theme.foreground;
+          indicator = theme.colors.surface1;
+          childBorder = theme.colors.surface1;
         };
 
         focusedInactive = {
-          border = "#414868";
-          background = "#1a1b26";
-          text = "#c0caf5";
-          indicator = "#414868";
-          childBorder = "#414868";
+          border = theme.background;
+          background = theme.background;
+          text = theme.foreground;
+          indicator = theme.background;
+          childBorder = theme.background;
         };
 
         unfocused = {
-          border = "#414868";
-          background = "#1a1b26";
-          text = "#c0caf5";
-          indicator = "#414868";
-          childBorder = "#414868";
+          border = theme.background;
+          background = theme.background;
+          text = theme.foreground;
+          indicator = theme.background;
+          childBorder = theme.background;
         };
 
         urgent = {
-          border = "#f7768e";
-          background = "#f7768e";
-          text = "#1a1b26";
-          indicator = "#f7768e";
-          childBorder = "#f7768e";
+          border = theme.attention-high;
+          background = theme.attention-high;
+          text = theme.background;
+          indicator = theme.attention-high;
+          childBorder = theme.attention-high;
         };
       };
 
