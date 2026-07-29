@@ -13,6 +13,7 @@ in
     ./feh.nix
     ./i3.nix
     ./polybar.nix
+    ./zig.nix
   ];
 
   home.username = "silas";

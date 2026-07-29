@@ -13,10 +13,17 @@
       # Cursor
       cursor_shape = "block";
       cursor_blink_interval = 0;
-
       shell_integration = "no-cursor";
 
       scrollback_lines = 2000;
+
+
+      # Window
+      draw_minimal_borders = "yes";
+      window_border_width = "0px";
+      #                       t r b l
+      window_padding_width = "2 6 6 2";
+      placement_strategy = "center";
 
       # Font
       font_family = "FiraCode Nerd Font";
@@ -26,12 +33,8 @@
       font_size = 10.0;
       disable_ligatures = "never";
 
-      # Window
-      draw_minimal_borders = "yes";
-      window_border_width = "0px";
-      # padding in pts        t r b l
-      window_padding_width = "2 6 6 2";
-      placement_strategy = "center";
+      # Theme-overrides 
+      background_opacity = "0.85";
     };
 
     keybindings = {
