@@ -8,6 +8,11 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,7 +21,7 @@
     catppuccin.url = "github:catppuccin/nix/release-26.05";
   };
 
-  outputs = { self, nixpkgs, catppuccin, home-manager, nixos-hardware, nix-snapd, ... }:
+  outputs = { self, nixpkgs, lanzaboote, catppuccin, home-manager, nixos-hardware, nix-snapd, ... }:
   {
     nixosConfigurations = {
       whitelotus = nixpkgs.lib.nixosSystem {
@@ -27,10 +32,12 @@
           ./hosts/whitelotus/configuration.nix
           nix-snapd.nixosModules.default
           nixos-hardware.nixosModules.framework-16-amd-ai-300-series
+          lanzaboote.nixosModules.lanzaboote
+
           catppuccin.nixosModules.catppuccin
-          home-manager.nixosModules.home-manager
 
           # Homemanager Config
+          home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

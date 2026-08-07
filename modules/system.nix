@@ -1,17 +1,21 @@
 # Catch-all system configuration. All the underlying things that you ussually setup
 # when installing Linux for the first time.
 # ---
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   settings = import ./settings.nix;
 in
 {
+  # Dependencies
+  environment.systemPackages = with pkgs; [
+    sbctl # for working with secure boot keys and stuff
+  ];
+
   # Bootloader.
   boot = {
     plymouth.enable = true;
 
-    # Enable "Silent boot"
     consoleLogLevel = 3;
     initrd.verbose = false;
     kernelParams = [
@@ -19,8 +23,18 @@ in
       "rd.udev.log_level=3"
       "rd.systemd.show_status=auto"
     ];
+
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/var/lib/sbctl";
+    };
+
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot = {
+        enable = lib.mkForce false;
+        configurationLimit = 10;
+      };
+
       efi.canTouchEfiVariables = true;
     };
   };
